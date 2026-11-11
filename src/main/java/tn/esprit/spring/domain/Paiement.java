@@ -1,6 +1,5 @@
 package tn.esprit.spring.domain;
 
-
 import jakarta.persistence.*;
 import lombok.*;
 import java.math.BigDecimal;
@@ -24,4 +23,8 @@ public class Paiement {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 20)
     private ModePaiement modePaiement;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_contrat", nullable = false)
+    private Contrat contrat;
 }

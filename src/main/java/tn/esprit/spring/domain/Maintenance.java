@@ -1,6 +1,5 @@
 package tn.esprit.spring.domain;
 
-
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDate;
@@ -21,4 +20,8 @@ public class Maintenance {
 
     @Column(length = 255)
     private String description;
+
+    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
+    
+    private Vehicule vehicule;
 }
